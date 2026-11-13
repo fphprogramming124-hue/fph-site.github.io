@@ -1,0 +1,61 @@
+# ==========================================================================
+#  FCC (Philippines) Corp. website — Apache settings for this folder
+#  Works under XAMPP (htdocs has AllowOverride All) and on a normal Apache
+#  host. Every block is wrapped in <IfModule>, so a missing module is
+#  skipped instead of taking the site down with a 500 error.
+# ==========================================================================
+
+# No folder listings (they exposed every file in featured_img/ etc.)
+Options -Indexes
+
+# --------------------------------------------------------------------------
+#  Never serve project notes, design snapshots, dotfiles or the multi-MB
+#  camera/video originals. They answer 404 as if they did not exist.
+#  RedirectMatch tests the decoded URL path, so spaces are literal here.
+# --------------------------------------------------------------------------
+<IfModule mod_alias.c>
+  # .claude/, .htaccess, any other dot-file or dot-folder
+  RedirectMatch 404 "/\.(?!well-known/)"
+  # README.md, CLAUDE.md, the design-history notes
+  RedirectMatch 404 "(?i)\.md$"
+  # design snapshots (the only history this project has — keep, but private)
+  RedirectMatch 404 "/design-(baseline|history)(/|$)"
+  # ~17MB camera originals; the site uses assets/img/events/ web copies
+  RedirectMatch 404 "(?i)/featured_img/FCC Riding Clinic [^/]*$"
+  # 30MB source video; the site uses assets/video/finish-line-podium.mp4
+  RedirectMatch 404 "(?i)/Finish line and Podium Highlights\.mp4$"
+</IfModule>
+
+# --------------------------------------------------------------------------
+#  Basic hardening headers. (Hiding the Apache/PHP version in the "Server"
+#  header needs ServerTokens Prod + ServerSignature Off in httpd.conf — that
+#  cannot be set from here.)
+# --------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# --------------------------------------------------------------------------
+#  Compression for text files
+# --------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json image/svg+xml
+</IfModule>
+
+# --------------------------------------------------------------------------
+#  Let browsers keep images and video for a week. CSS, JS and HTML are left
+#  alone on purpose: they change while the site is being edited, and long
+#  caching there would make edits look like they did nothing.
+# --------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg    "access plus 7 days"
+  ExpiresByType image/png     "access plus 7 days"
+  ExpiresByType image/webp    "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType image/x-icon  "access plus 7 days"
+  ExpiresByType video/mp4     "access plus 7 days"
+</IfModule>

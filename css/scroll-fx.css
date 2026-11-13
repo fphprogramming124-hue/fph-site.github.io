@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Scroll-linked effects — native CSS scroll-driven animations
+   (animation-timeline: view()). No scroll listener, nothing for JS to keep
+   in sync. Wrapped in @supports and prefers-reduced-motion: no-preference;
+   where either fails, things simply sit still.
+
+     data-parallax          media drifts against the scroll
+     data-parallax="slow"   half the travel
+     data-frame-open        a panel opens from an angled inset as it arrives
+     data-slide-x           big type slides sideways across the screen
+
+   The JS-driven scenes (pinned manifesto, sideways products, kinetic type)
+   live in js/scenes.js — they need numbers CSS cannot express yet.
+
+   ONE PROPERTY PER ANIMATION: parallax owns `transform`. Anything else on
+   the same element uses `scale`, `opacity`, `translate` or `clip-path`.
+   Load order: after animations.css, before sections.css.
+   ========================================================================== */
+
+@keyframes fcc-drift {
+  from { transform: translate3d(0, var(--parallax-from, 7%), 0); }
+  to   { transform: translate3d(0, var(--parallax-to, -7%), 0); }
+}
+
+/* The hero copy lifts, fades and blurs slightly as the video scrolls away */
+@keyframes fcc-hero-out {
+  from { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+  to   { opacity: 0; transform: translate3d(0, -18%, 0); filter: blur(6px); }
+}
+
+/* A panel opens from an angled inset to full bleed */
+@keyframes fcc-frame-open {
+  from { clip-path: polygon(8% 10%, 100% 4%, 92% 90%, 0 96%); }
+  to   { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+@keyframes fcc-slide-x {
+  from { translate: var(--slide-from, 18%) 0; }
+  to   { translate: var(--slide-to, -18%) 0; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    [data-parallax] {
+      animation: fcc-drift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+    [data-parallax="slow"] { --parallax-from: 3%; --parallax-to: -3%; }
+
+    /* The video is cover-fitted to the hero, so it overscales to drift */
+    .hero__video[data-parallax] {
+      --parallax-from: 0%;
+      --parallax-to: 14%;
+      scale: 1.14;
+      animation-range: exit 0% exit 100%;
+    }
+
+    /* Media that clips its contents can travel further */
+    .media-frame [data-parallax] {
+      --parallax-from: -8%;
+      --parallax-to: 8%;
+      scale: 1.18;
+    }
+
+    .hero__content {
+      animation: fcc-hero-out linear both;
+      animation-timeline: view();
+      animation-range: exit 5% exit 60%;
+    }
+
+    [data-frame-open] {
+      animation: fcc-frame-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    [data-slide-x] {
+      animation: fcc-slide-x linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+    [data-slide-x="reverse"] { --slide-from: -18%; --slide-to: 18%; }
+  }
+}

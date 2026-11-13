@@ -1,0 +1,353 @@
+/* ==========================================================================
+   FCC (Philippines) Corp. — Design Tokens
+   Motorsport: carbon-black grounds, one racing red, chalk-white type,
+   sharp angled shapes, telemetry-style mono labels.
+   Every colour, space, size, shadow and timing decision lives HERE.
+   ========================================================================== */
+
+:root {
+
+  /* ----------------------------------------------------------------------
+     COLOUR — primitives
+     ---------------------------------------------------------------------- */
+  --white:      #ffffff;
+  --black:      #000000;
+
+  /* Carbon — the page ground. 950 is the deepest (video, intro, footer). */
+  --carbon-950: #060607;
+  --carbon-900: #0c0c0e;   /* main ground */
+  --carbon-850: #121215;   /* cards */
+  --carbon-800: #18181c;   /* raised cards, inputs */
+  --carbon-700: #26262c;
+  --carbon-600: #34343b;
+
+  /* Chalk — the light pit-lane bands (Where to Buy, Contact) */
+  --chalk-50:   #f4f3ef;
+  --chalk-100:  #eae8e2;
+  --chalk-200:  #dcd9d1;
+
+  /* Text greys. On carbon-900: steel-200 ~13:1, steel-300 ~8.6:1,
+     steel-400 ~5.6:1 (the lightest text grey on dark). */
+  --steel-100:  #e7e8ea;
+  --steel-200:  #c9cbd0;
+  --steel-300:  #a6a9b1;
+  --steel-400:  #868a94;
+
+  /* Ink — text on chalk. ink-500 ~5.6:1 is the lightest text grey on light. */
+  --ink-900:    #0c0c0e;
+  --ink-700:    #33353b;
+  --ink-600:    #4b4e56;
+  --ink-500:    #5c5f68;
+
+  /* Brand blue sampled from fcc_logo.png — kept for the logo only */
+  --brand:      #1a478e;
+
+  /* Racing red. 600 is the fill (white text on it ~4.9:1); 400 is red TEXT
+     on carbon (~5.6:1); 700 is red TEXT on chalk (~5.9:1). */
+  --blue-400:    #6aa0ff;
+  --blue-500:    #3b7bff;
+  --blue-600:    #1f5fe8;
+  --blue-700:    #1748b8;
+  --blue-800:    #0f2f80;
+
+  --signal-success:    #15803d;
+  --signal-success-bg: #dcfce7;
+  --signal-warn:       #b45309;
+  --signal-warn-bg:    #fef3c7;
+  --signal-error:      #b91c1c;
+  --signal-error-bg:   #fef2f2;
+
+  /* ----------------------------------------------------------------------
+     GRADIENTS AND PATTERNS
+     ---------------------------------------------------------------------- */
+  --grad-hero:   linear-gradient(180deg, rgba(6, 6, 7, .72) 0%, rgba(6, 6, 7, .25) 34%, rgba(6, 6, 7, .55) 70%, var(--carbon-950) 100%);
+  --grad-hero-side: linear-gradient(90deg, rgba(6, 6, 7, .78) 0%, rgba(6, 6, 7, .2) 60%, transparent 100%);
+  --grad-blue:    linear-gradient(115deg, var(--blue-600) 0%, var(--blue-700) 100%);
+  --grad-blue-band: radial-gradient(120% 140% at 100% 0%, var(--blue-600) 0%, var(--blue-700) 48%, var(--blue-800) 100%);
+  --grad-glow:   radial-gradient(50% 50% at 50% 50%, rgba(31, 95, 232, .38) 0%, rgba(31, 95, 232, 0) 70%);
+  --scrim-caption: linear-gradient(to top, rgba(6, 6, 7, .9), rgba(6, 6, 7, 0));
+
+  /* Diagonal racing stripes */
+  --stripes: repeating-linear-gradient(115deg, var(--blue-600) 0 10px, transparent 10px 22px);
+  --stripes-faint: repeating-linear-gradient(115deg, rgba(255, 255, 255, .05) 0 1px, transparent 1px 14px);
+
+  /* Chequered flag (two squares of --check-size) */
+  --check-size: 8px;
+  --checker: conic-gradient(var(--white) 25%, var(--black) 0 50%, var(--white) 0 75%, var(--black) 0) 0 0 / calc(var(--check-size) * 2) calc(var(--check-size) * 2);
+
+  /* Carbon-fibre twill, very low contrast — panels only */
+  --carbon-weave:
+    linear-gradient(27deg, rgba(255, 255, 255, .025) 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, rgba(255, 255, 255, .025) 5px, transparent 5px) 10px 0,
+    linear-gradient(27deg, rgba(0, 0, 0, .25) 5px, transparent 5px) 0 10px,
+    linear-gradient(207deg, rgba(0, 0, 0, .25) 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, rgba(255, 255, 255, .015) 10px, transparent 10px);
+  --carbon-weave-size: 20px 20px;
+
+  /* ----------------------------------------------------------------------
+     COLOUR — semantic (themes below remap these)
+     ---------------------------------------------------------------------- */
+  --color-bg:             var(--carbon-900);
+  --color-surface:        var(--carbon-850);
+  --color-surface-sunken: var(--carbon-950);
+  --color-surface-raised: var(--carbon-800);
+
+  --color-text:           var(--white);
+  --color-text-body:      var(--steel-200);
+  --color-text-muted:     var(--steel-300);
+  --color-text-faint:     var(--steel-400);
+
+  --color-line:           rgba(255, 255, 255, .09);
+  --color-line-strong:    rgba(255, 255, 255, .22);
+
+  --color-accent:         var(--blue-600);
+  --color-accent-text:    var(--blue-400);
+  --color-accent-soft:    rgba(31, 95, 232, .14);
+  --color-on-accent:      var(--white);
+
+  --color-primary:        var(--white);
+  --color-primary-hover:  var(--steel-100);
+  --color-on-primary:     var(--ink-900);
+
+  --color-focus:          var(--blue-400);
+
+  --glass-bg:     rgba(255, 255, 255, .06);
+  --glass-border: rgba(255, 255, 255, .14);
+
+  /* ----------------------------------------------------------------------
+     TYPOGRAPHY
+     Archivo (variable width) for display, set expanded and heavy; Inter for
+     reading; JetBrains Mono for telemetry labels and numbers.
+     ---------------------------------------------------------------------- */
+  --font-display: 'Archivo', 'Arial Black', 'Segoe UI', system-ui, sans-serif;
+  --font-sans:    'Inter', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --stretch-display: 118%;
+  --stretch-wide:    125%;
+
+  --fs-2xs: 0.6875rem;
+  --fs-xs:  0.75rem;
+  --fs-sm:  0.875rem;
+  --fs-base: 1rem;
+  --fs-md:  1.125rem;
+  --fs-lg:  clamp(1.2rem, 1.1rem + .45vw, 1.45rem);
+  --fs-xl:  clamp(1.45rem, 1.2rem + 1vw, 2rem);
+  --fs-2xl: clamp(2rem, 1.2rem + 3.2vw, 4.25rem);
+  --fs-3xl: clamp(2.5rem, 1rem + 5.6vw, 6.5rem);
+  --fs-hero: clamp(2.1rem, .4rem + 5.9vw, 7.2rem);
+  --fs-mega: clamp(4rem, 1rem + 13vw, 15rem);
+  --fs-num:  clamp(2.25rem, 1.5rem + 2.8vw, 4rem);
+  --fs-manifesto: clamp(1.6rem, .9rem + 2.9vw, 3.9rem);
+
+  --lh-tight:   .92;
+  --lh-snug:    1.12;
+  --lh-normal:  1.6;
+  --lh-relaxed: 1.7;
+
+  --tracking-display: -0.01em;
+  --tracking-tight:   -0.01em;
+  --tracking-label:    0.14em;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+  --fw-heavy:   800;
+  --fw-black:   900;
+
+  /* ----------------------------------------------------------------------
+     SPACING
+     ---------------------------------------------------------------------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  40px;
+  --space-8:  48px;
+  --space-9:  64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 128px;
+
+  --section-y: clamp(80px, 10vw, 152px);
+
+  /* ----------------------------------------------------------------------
+     SHAPE AND DEPTH — sharp. --cut is the angled corner on panels and
+     buttons; --skew is the forward lean on buttons and tabs.
+     ---------------------------------------------------------------------- */
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   6px;
+  --radius-xl:   8px;
+  --radius-pill: 999px;
+
+  --cut:    18px;
+  --cut-sm: 10px;
+  --skew:   -12deg;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-md: 0 16px 40px -18px rgba(0, 0, 0, .7);
+  --shadow-lg: 0 40px 80px -30px rgba(0, 0, 0, .85);
+  --shadow-glow: 0 18px 50px -14px rgba(31, 95, 232, .6);
+  --shadow-light: 0 20px 50px -26px rgba(12, 12, 14, .35);
+
+  --glow-accent: 0 0 16px rgba(59, 123, 255, .75);
+
+  /* ----------------------------------------------------------------------
+     Z-INDEX
+     ---------------------------------------------------------------------- */
+  --z-base:     0;
+  --z-raised:   10;
+  --z-sticky:   100;
+  --z-header:   200;
+  --z-overlay:  290;
+  --z-drawer:   300;
+  --z-skiplink: 500;
+  --z-intro:    600;
+
+  /* ----------------------------------------------------------------------
+     MOTION
+     SNAP  — UI answering the user. GLIDE — content arriving.
+     ---------------------------------------------------------------------- */
+  --dur-instant: 100ms;
+  --dur-fast:    160ms;
+  --dur-base:    240ms;
+  --dur-slow:    380ms;
+  --dur-slower:  560ms;
+  --dur-drawer:  380ms;
+
+  --ease-out:    cubic-bezier(.16, 1, .3, 1);
+  --ease-in-out: cubic-bezier(.76, 0, .24, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+
+  --dur-reveal:  900ms;
+  --dur-stage:   1200ms;
+  --ease-glide:  cubic-bezier(.19, 1, .22, 1);
+
+  --reveal-distance: 56px;
+  --stagger-step:    80ms;   /* js/motion.js reads this */
+  --stagger-line:    90ms;
+
+  --dur-intro:     1100ms;   /* js/intro.js reads this: the counter run */
+  --dur-intro-out: 900ms;    /* and this: the curtain lifting */
+
+  --dur-tour:      5200ms;   /* js/powerflow.js reads this */
+  --dur-spin-fast: 1.1s;
+  --dur-spin-mid:  1.7s;
+  --dur-spin-slow: 2.4s;
+  --dur-belt:      .8s;
+  --dur-marquee:   24s;
+
+  /* ----------------------------------------------------------------------
+     LAYOUT
+     ---------------------------------------------------------------------- */
+  --container-max:    1320px;
+  --container-narrow: 760px;
+  --gutter:           clamp(20px, 5vw, 64px);
+
+  --header-h: 76px;   /* js/nav.js reads this for the scroll-spy margin */
+}
+
+/* ==========================================================================
+   THEMES — re-declare the semantic layer only.
+   .theme-dark (default, carbon) · .theme-light (chalk) · .theme-blue (band)
+   .theme-white / .theme-paper / .theme-navy / .theme-ink are aliases.
+   ========================================================================== */
+.theme-dark, .theme-navy, .theme-ink,
+.theme-light, .theme-paper, .theme-white,
+.theme-blue {
+  background-color: var(--color-bg);
+  color: var(--color-text-body);
+}
+
+.theme-dark,
+.theme-navy,
+.theme-ink {
+  --color-bg:             var(--carbon-900);
+  --color-surface:        var(--carbon-850);
+  --color-surface-sunken: var(--carbon-950);
+  --color-surface-raised: var(--carbon-800);
+  --color-text:           var(--white);
+  --color-text-body:      var(--steel-200);
+  --color-text-muted:     var(--steel-300);
+  --color-text-faint:     var(--steel-400);
+  --color-line:           rgba(255, 255, 255, .09);
+  --color-line-strong:    rgba(255, 255, 255, .22);
+  --color-accent-text:    var(--blue-400);
+  --color-accent-soft:    rgba(31, 95, 232, .14);
+  --color-primary:        var(--white);
+  --color-primary-hover:  var(--steel-100);
+  --color-on-primary:     var(--ink-900);
+  --color-focus:          var(--blue-400);
+  --glass-bg:             rgba(255, 255, 255, .06);
+  --glass-border:         rgba(255, 255, 255, .14);
+}
+
+.theme-light,
+.theme-paper,
+.theme-white {
+  --color-bg:             var(--chalk-50);
+  --color-surface:        var(--white);
+  --color-surface-sunken: var(--chalk-100);
+  --color-surface-raised: var(--white);
+  --color-text:           var(--ink-900);
+  --color-text-body:      var(--ink-700);
+  --color-text-muted:     var(--ink-600);
+  --color-text-faint:     var(--ink-500);
+  --color-line:           rgba(12, 12, 14, .1);
+  --color-line-strong:    rgba(12, 12, 14, .24);
+  --color-accent-text:    var(--blue-700);
+  --color-accent-soft:    rgba(31, 95, 232, .08);
+  --color-primary:        var(--ink-900);
+  --color-primary-hover:  var(--carbon-700);
+  --color-on-primary:     var(--white);
+  --color-focus:          var(--blue-700);
+  --glass-bg:             rgba(255, 255, 255, .7);
+  --glass-border:         rgba(12, 12, 14, .1);
+}
+
+/* White text only on red — dark text on it falls under 4.5:1 */
+.theme-blue {
+  --color-bg:             var(--blue-600);
+  --color-surface:        rgba(0, 0, 0, .22);
+  --color-surface-sunken: rgba(0, 0, 0, .3);
+  --color-surface-raised: rgba(0, 0, 0, .18);
+  --color-text:           var(--white);
+  --color-text-body:      var(--white);
+  --color-text-muted:     var(--white);
+  --color-text-faint:     var(--white);
+  --color-line:           rgba(255, 255, 255, .22);
+  --color-line-strong:    rgba(255, 255, 255, .5);
+  --color-accent-text:    var(--white);
+  --color-accent-soft:    rgba(0, 0, 0, .2);
+  --color-primary:        var(--white);
+  --color-primary-hover:  var(--steel-100);
+  --color-on-primary:     var(--ink-900);
+  --color-focus:          var(--white);
+  --glass-bg:             rgba(0, 0, 0, .18);
+  --glass-border:         rgba(255, 255, 255, .3);
+}
+
+/* ==========================================================================
+   REDUCED MOTION — token-level retune
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 1ms;
+    --dur-fast:    1ms;
+    --dur-base:    1ms;
+    --dur-slow:    1ms;
+    --dur-slower:  1ms;
+    --dur-drawer:  1ms;
+    --dur-reveal:  1ms;
+    --dur-stage:   1ms;
+    --dur-intro:   1ms;
+    --dur-intro-out: 1ms;
+    --reveal-distance: 0px;
+    --stagger-step:    0ms;
+    --stagger-line:    0ms;
+  }
+}

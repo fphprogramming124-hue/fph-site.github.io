@@ -1,0 +1,7 @@
+# robots.txt only takes effect at the root of a domain. When the site is
+# published at its own domain, this file must sit at https://<domain>/robots.txt.
+# TODO: add "Sitemap: https://<domain>/sitemap.xml" once the domain is known.
+
+User-agent: *
+Disallow: /design-baseline/
+Disallow: /design-history/

@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Layout — containers, sections, grids, stacks
+   Breakpoints: 40rem (640) · 48rem (768) · 64rem (1024) · 80rem (1280)
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow { max-width: calc(var(--container-narrow) + var(--gutter) * 2); }
+
+/* A page section. Its own ground comes from the theme class beside it. */
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+/* Anything an in-page link targets */
+.section-anchor { scroll-margin-top: var(--header-h); }
+
+/* --------------------------------------------------------------------------
+   Stacks and clusters
+   -------------------------------------------------------------------------- */
+.stack > * + *      { margin-block-start: var(--space-4); }
+.stack--sm > * + *  { margin-block-start: var(--space-2); }
+.stack--lg > * + *  { margin-block-start: var(--space-6); }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+.cluster--sm { gap: var(--space-2); }
+
+/* --------------------------------------------------------------------------
+   Grids
+   -------------------------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 64rem) {
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Hairline grid: cells share 1px rules instead of gaps — the "spec sheet"
+   look. The background shows through the 1px gap as the line. */
+.grid--ruled {
+  gap: 1px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+}
+.grid--ruled > * { background: var(--color-bg); }
+
+/* Two-column split on desktop. The modifier names the column ratio. */
+.split {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@media (min-width: 64rem) {
+  .split          { gap: var(--space-10); }
+  .split--6-6     { grid-template-columns: 1fr 1fr; }
+  .split--7-5     { grid-template-columns: 7fr 5fr; }
+  .split--5-7     { grid-template-columns: 5fr 7fr; }
+  .split--4-8     { grid-template-columns: 4fr 8fr; }
+  .split--top     { align-items: start; }
+}
+
+/* --------------------------------------------------------------------------
+   Bento — the Careers photo mosaic
+   -------------------------------------------------------------------------- */
+.bento {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  grid-auto-rows: 220px;
+}
+
+@media (min-width: 48rem) {
+  .bento { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 64rem) {
+  .bento {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+  }
+  .bento__cell--tall { grid-row: span 2; }
+  .bento__cell--wide { grid-column: span 2; }
+  .bento__cell--full { grid-column: 1 / -1; }
+}
+
+.bento__cell {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: var(--color-surface-sunken);
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal scroller for wide tables
+   -------------------------------------------------------------------------- */
+.scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-x:focus-visible { outline-offset: -2px; }
+
+/* --------------------------------------------------------------------------
+   Aspect helpers (render.js emits these on media)
+   -------------------------------------------------------------------------- */
+.aspect-16-9 { aspect-ratio: 16 / 9; }
+.aspect-4-3  { aspect-ratio: 4 / 3; }
+.aspect-3-2  { aspect-ratio: 3 / 2; }
+.aspect-1-1  { aspect-ratio: 1 / 1; }

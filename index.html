@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FCC (Philippines) Corp. — Clutch Components Manufacturer, Laguna Technopark</title>
+<meta name="description" content="FCC (Philippines) Corp. manufactures clutch parts at Laguna Technopark, Biñan. A PEZA registered enterprise and wholly owned subsidiary of FCC Co., Ltd., Japan. Established 1993.">
+<meta name="theme-color" content="#0c0c0e">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/logo/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+
+<!-- Link previews (Facebook, Viber, LinkedIn, X).
+     TODO: once the site is on its public domain, make og:url and og:image
+     absolute (https://<domain>/fph_site/...) — Facebook ignores relative ones. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FCC (Philippines) Corp.">
+<meta property="og:locale" content="en_PH">
+<meta property="og:title" content="FCC (Philippines) Corp. — Japanese clutch technology, made in the Philippines">
+<meta property="og:description" content="Clutch components for motorcycles and scooters, built at Laguna Technopark since 1993 to the standards of FCC Co., Ltd., Japan. Find a distributor or become a partner.">
+<meta property="og:image" content="assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The FCC (Philippines) Corp. plant at Laguna Technopark, Biñan">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Organisation details for search engines. Values match the verified
+     company data in the About section — keep the two in step. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FCC (Philippines) Corp.",
+  "foundingDate": "1993-09-27",
+  "description": "Manufacture and sale of 2-wheel and 4-wheel clutch parts and cylinder comp, and 4R clutch friction material. PEZA registered enterprise.",
+  "parentOrganization": { "@type": "Organization", "name": "FCC Co., Ltd." },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "106 North Science Avenue, Laguna Technopark",
+    "addressLocality": "Biñan",
+    "addressRegion": "Laguna",
+    "addressCountry": "PH"
+  },
+  "email": "salesmarketingph@worldfcc.com",
+  "telephone": "+63 917 866 6918",
+  "numberOfEmployees": { "@type": "QuantitativeValue", "value": 512 },
+  "sameAs": ["https://instagram.com/fccphilippinescorp"]
+}
+</script>
+
+<!-- Marks the document as JS-capable. Load-bearing: every hiding rule in
+     animations.css is prefixed .js, so without scripting the page simply
+     renders fully visible.
+     .is-intro raises the loader (js/intro.js) once per browser session when
+     motion is allowed. The timeout is the safety net: if intro.js never
+     runs, the loader still gets out of the way. -->
+<script>
+(function (h) {
+  h.classList.add('js');
+  try {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+        !window.sessionStorage.getItem('fcc-intro-seen')) {
+      h.classList.add('is-intro');
+      window.setTimeout(function () { h.classList.remove('is-intro'); }, 4000);
+    }
+  } catch (e) {}
+})(document.documentElement);
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,500..900;1,100..125,500..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/scroll-fx.css">
+<link rel="stylesheet" href="css/sections.css">
+</head>
+
+<body class="theme-dark">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Intro loader — decorative, first visit per session only (see <head>) -->
+<div class="intro" data-intro aria-hidden="true">
+  <div class="intro__inner">
+    <img class="intro__mark" src="assets/logo/fcc-logo-240.png" alt="" width="240" height="240">
+    <p class="intro__name">FCC <span>Philippines</span></p>
+    <div class="intro__bar"><span data-intro-bar></span></div>
+    <div class="intro__meta">
+      <span>Est. 1993</span>
+      <span class="intro__count"><span data-intro-count>000</span>%</span>
+    </div>
+  </div>
+  <span class="intro__stripes"></span>
+</div>
+
+<!-- ==========================================================================
+     HEADER — transparent over the video, solid carbon once scrolled
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+
+    <a class="logo-lockup" href="#home" aria-label="FCC Philippines Corp. — back to top">
+      <img class="logo-lockup__mark" src="assets/logo/fcc-logo-240.png" alt=""
+           width="240" height="240" decoding="async">
+      <span class="logo-lockup__text">
+        <span class="logo-lockup__name">FCC</span>
+        <span class="logo-lockup__sub">(Philippines) Corp.</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a class="nav__link" href="#about" data-nav-link>About</a>
+      <a class="nav__link" href="#products" data-nav-link
+         data-nav-dropdown aria-haspopup="true" aria-expanded="false"
+         aria-controls="nav-panel-products">Products</a>
+
+      <!-- Products flyout. In the DOM right after its tab so Tab order runs
+           Products → categories and parts → Where to Buy. -->
+      <div class="nav-panel" id="nav-panel-products" data-nav-panel
+           role="group" aria-label="Product categories">
+        <div class="nav-panel__inner">
+          <div>
+            <p class="label">Product range</p>
+            <p class="nav-panel__empty" style="margin-block-start: var(--space-2)">Genuine FCC clutch parts for scooters and sport motorcycles.</p>
+          </div>
+          <!-- Filled by render.js from DATA.PRODUCT_CATEGORIES + DATA.products -->
+          <div class="nav-panel__grid" data-nav-panel-body></div>
+        </div>
+      </div>
+
+      <a class="nav__link" href="#shop"    data-nav-link>Where to Buy</a>
+      <a class="nav__link" href="#partner" data-nav-link>Partners</a>
+      <a class="nav__link" href="#events"  data-nav-link>News</a>
+      <a class="nav__link" href="#careers" data-nav-link>Careers</a>
+    </nav>
+
+    <a class="btn btn--accent btn--sm site-header__cta" href="#contact" data-magnetic>
+      <span class="btn__label">Contact us</span>
+      <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+    </a>
+
+    <button type="button" class="nav-toggle" data-nav-toggle
+            aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+      <svg class="icon icon--lg nav-toggle__open"  aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+      <svg class="icon icon--lg nav-toggle__close" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+
+  <span class="scroll-progress" data-scroll-progress aria-hidden="true"></span>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+
+<div class="mobile-menu" id="site-menu" data-drawer hidden>
+  <p class="mobile-menu__head">FCC (Philippines) Corp.</p>
+
+  <nav aria-label="Mobile">
+    <ul class="mobile-menu__list">
+      <li><a class="mobile-menu__link" href="#about"    data-nav-link><span class="mobile-menu__num">01</span>About</a></li>
+      <li><a class="mobile-menu__link" href="#products" data-nav-link><span class="mobile-menu__num">02</span>Products</a></li>
+      <li><a class="mobile-menu__link" href="#shop"     data-nav-link><span class="mobile-menu__num">03</span>Where to Buy</a></li>
+      <li><a class="mobile-menu__link" href="#partner"  data-nav-link><span class="mobile-menu__num">04</span>Partners</a></li>
+      <li><a class="mobile-menu__link" href="#events"   data-nav-link><span class="mobile-menu__num">05</span>News</a></li>
+      <li><a class="mobile-menu__link" href="#careers"  data-nav-link><span class="mobile-menu__num">06</span>Careers</a></li>
+      <li><a class="mobile-menu__link" href="#contact"  data-nav-link><span class="mobile-menu__num">07</span>Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="mobile-menu__foot">
+    <a class="btn btn--accent btn--block" href="#contact" data-inquiry="sales">
+      <span class="btn__label">Request a quote</span>
+      <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+    </a>
+    <p>106 North Science Avenue<br>Laguna Technopark, Biñan, Laguna</p>
+  </div>
+</div>
+
+
+<main id="main" tabindex="-1">
+
+<!-- ==========================================================================
+     HERO — full-bleed video. Muted + playsinline let it autoplay on phones;
+     motion.js pauses it under reduced motion, leaving the poster frame.
+     TODO: the footage is third-party race broadcast (EWC watermark) — get
+     permission or swap in FCC's own footage before the site goes public.
+     ========================================================================== -->
+<section class="hero theme-dark section-anchor" id="home" aria-labelledby="hero-title">
+  <video class="hero__video" data-hero-video data-parallax
+         autoplay muted loop playsinline preload="metadata"
+         poster="assets/img/hero/hero-poster.jpg"
+         aria-hidden="true" tabindex="-1">
+    <source src="assets/video/finish-line-podium.mp4" type="video/mp4">
+  </video>
+  <span class="hero__shade" aria-hidden="true"></span>
+  <span class="hero__stripes" aria-hidden="true" data-hero-seq="0" data-hero-wipe></span>
+
+  <div class="container hero__content">
+    <p class="hero__kicker" data-hero-seq="0">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>Est. 1993</span><span class="hero__sep" aria-hidden="true">/</span>
+      <span>Laguna Technopark</span><span class="hero__sep" aria-hidden="true">/</span>
+      <span>FCC Group, Japan</span>
+    </p>
+
+    <h1 class="hero__title" id="hero-title" data-hero-seq="1" data-split-lines>
+      Japanese clutch technology. <em>Made in the Philippines.</em>
+    </h1>
+
+    <div class="hero__row">
+      <p class="hero__lead" data-hero-seq="3">
+        Clutch components for scooters and motorcycles, built in Laguna to the
+        standards of FCC Co., Ltd., Japan.
+      </p>
+      <div class="cluster hero__actions">
+        <a class="btn btn--accent btn--lg" href="#products" data-hero-seq="4" data-btn-mask data-magnetic>
+          <span class="btn__label">Explore products</span>
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#partner" data-hero-seq="5" data-btn-mask data-magnetic>
+          <span class="btn__label">Become a partner</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Telemetry strip. Facts from the verified company profile. Numbers
+       carry their final value in the markup; Motion winds them back. -->
+  <div class="hero__telemetry" data-hero-seq="6">
+    <dl class="container telemetry">
+      <div class="telemetry__cell">
+        <dt class="telemetry__label">Established</dt>
+        <dd class="telemetry__value" data-count-to="1993" data-count-separator="false">1993</dd>
+      </div>
+      <div class="telemetry__cell">
+        <dt class="telemetry__label">People</dt>
+        <dd class="telemetry__value" data-count-to="512">512</dd>
+      </div>
+      <div class="telemetry__cell">
+        <dt class="telemetry__label">Certified</dt>
+        <dd class="telemetry__value telemetry__value--text">ISO 9001 · 14001</dd>
+      </div>
+      <div class="telemetry__cell">
+        <dt class="telemetry__label">Owned by FCC Japan</dt>
+        <dd class="telemetry__value" data-count-to="100" data-count-suffix="%">100%</dd>
+      </div>
+    </dl>
+  </div>
+
+  <a class="scroll-cue" href="#about" aria-label="Scroll to About">
+    <span class="scroll-cue__text" aria-hidden="true">Scroll</span>
+    <span class="scroll-cue__track" aria-hidden="true"><span class="scroll-cue__line"></span></span>
+  </a>
+</section>
+
+<!-- Kinetic type — two rows that drift in opposite directions and speed up
+     with the scroll (js/scenes.js). Decorative: every word is said elsewhere. -->
+<div class="kinetic" data-kinetic aria-hidden="true">
+  <div class="kinetic__row" data-kinetic-row="1">
+    <div class="kinetic__track">
+      <span>Precision</span><span class="is-outline">Power</span><span>Grip</span><span class="is-outline">Since 1993</span>
+      <span>Precision</span><span class="is-outline">Power</span><span>Grip</span><span class="is-outline">Since 1993</span>
+    </div>
+  </div>
+  <div class="kinetic__row kinetic__row--sub" data-kinetic-row="-1">
+    <div class="kinetic__track">
+      <span>Clutch weights</span><span class="is-red">Drive faces</span><span>Driven pulleys</span><span class="is-red">Multi-plate discs</span><span>ISO 9001 · 14001</span><span class="is-red">PEZA registered</span>
+      <span>Clutch weights</span><span class="is-red">Drive faces</span><span>Driven pulleys</span><span class="is-red">Multi-plate discs</span><span>ISO 9001 · 14001</span><span class="is-red">PEZA registered</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==========================================================================
+     ABOUT — 1. the company statement, shown in full; 2. the verified
+     company profile, with the company data open by default.
+     ========================================================================== -->
+<section class="manifesto theme-dark section-anchor" id="about" aria-labelledby="about-title">
+  <div class="manifesto__pin">
+    <div class="container">
+      <p class="label"><span class="label__num">01</span>About FCC</p>
+      <h2 class="visually-hidden" id="about-title">About FCC (Philippines) Corp.</h2>
+      <p class="manifesto__text">
+        Since <em>1993</em> we have built clutch components at <em>Laguna Technopark</em> — to the
+        engineering and quality standards of <em>FCC Co., Ltd., Japan.</em> Every part we make
+        carries the power from the engine to the road.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-dark about" aria-labelledby="about-detail-title">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__media">
+        <div data-reveal="clip">
+          <div class="media-frame about__frame">
+            <img src="assets/img/facility/plant-exterior.jpg"
+                 alt="Entrance of the FCC (Philippines) Corp. plant at Laguna Technopark, Biñan"
+                 width="1529" height="862" loading="lazy" decoding="async" data-parallax>
+            <!-- Shown in place of the plant while the pointer is on the
+                 President card below (the swap is pure CSS, sections.css). -->
+            <img class="about__frame-alt" src="assets/img/people/president.jpg" alt=""
+                 width="834" height="557" loading="lazy" decoding="async" aria-hidden="true">
+          </div>
+        </div>
+        <p class="about__caption" data-reveal="fade">
+          <span class="about__caption-text">Laguna Technopark, Biñan</span>
+          <span class="about__caption-text about__caption-text--alt" aria-hidden="true">Tsuyoshi Nakada · President</span>
+        </p>
+      </div>
+
+      <div class="about__copy">
+        <h3 class="about__title" id="about-detail-title" data-reveal data-split-lines>Built in Laguna. Engineered to Japanese standard.</h3>
+        <p class="sec-lead" data-reveal>
+          Incorporated on 27 September 1993, FCC (Philippines) Corp. is a wholly owned
+          subsidiary of FCC Co., Ltd. of Japan and a PEZA registered enterprise. The plant
+          produces clutch assemblies and components for two-wheel applications, cylinder
+          comp, and friction material for four-wheel clutch systems.
+        </p>
+
+        <div class="leader-chip" data-reveal>
+          <!-- TODO: a professional portrait would serve better than this showroom photo -->
+          <img src="assets/img/people/president.jpg" alt="" width="834" height="557" loading="lazy" decoding="async">
+          <span><strong>Tsuyoshi Nakada</strong><br>President, FCC (Philippines) Corp.</span>
+        </div>
+
+        <!-- Full company data, folded away -->
+        <div class="accordion about__data" data-reveal>
+          <div class="accordion__item">
+            <button type="button" class="accordion__trigger" aria-expanded="true" aria-controls="company-data" data-accordion>
+              <span>Company data</span>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg>
+            </button>
+            <div class="accordion__panel" id="company-data">
+              <dl class="spec-list">
+                <div class="spec-list__row"><dt class="spec-list__key">Company name</dt><dd class="spec-list__val spec-list__val--strong">FCC (Philippines) Corp.</dd></div>
+                <div class="spec-list__row"><dt class="spec-list__key">Location</dt><dd class="spec-list__val">106 North Science Avenue, Laguna Technopark, Biñan, Laguna, Philippines</dd></div>
+                <div class="spec-list__row"><dt class="spec-list__key">Business content</dt><dd class="spec-list__val">Manufacture and sale of 2-wheel and 4-wheel clutch parts and cylinder comp, and 4R clutch friction material (PEZA enterprise)</dd></div>
+                <div class="spec-list__row"><dt class="spec-list__key">Established</dt><dd class="spec-list__val">September 27, 1993</dd></div>
+                <div class="spec-list__row"><dt class="spec-list__key">Investment ratio</dt><dd class="spec-list__val">FCC Co. Ltd. 100%</dd></div>
+                <div class="spec-list__row"><dt class="spec-list__key">Fiscal year</dt><dd class="spec-list__val">March 31 (Annual)</dd></div>
+                <div class="spec-list__row"><dt class="spec-list__key">Employees</dt><dd class="spec-list__val">512 (Direct: 342 / Business partner: 170)</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="spec-cards" role="list" data-reveal-group>
+      <li class="spec-card" data-reveal data-tilt data-spotlight>
+        <span class="spec-card__num">A</span>
+        <svg class="icon icon--lg spec-card__icon" aria-hidden="true" focusable="false"><use href="#i-award"></use></svg>
+        <strong class="spec-card__title">ISO 9001:2015 · ISO 14001:2015</strong>
+        <span class="spec-card__text">Certified quality and environmental management</span>
+      </li>
+      <li class="spec-card" data-reveal data-tilt data-spotlight>
+        <span class="spec-card__num">B</span>
+        <svg class="icon icon--lg spec-card__icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"></use></svg>
+        <strong class="spec-card__title">PEZA registered enterprise</strong>
+        <span class="spec-card__text">Laguna Technopark, Biñan, Laguna</span>
+      </li>
+      <li class="spec-card" data-reveal data-tilt data-spotlight>
+        <span class="spec-card__num">C</span>
+        <svg class="icon icon--lg spec-card__icon" aria-hidden="true" focusable="false"><use href="#i-users"></use></svg>
+        <strong class="spec-card__title">512 people</strong>
+        <span class="spec-card__text">Direct 342 · Business partner 170</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     PRODUCTS — cards built by render.js from DATA.products. On desktop the
+     section pins and the card row slides sideways as you scroll
+     (js/scenes.js); on phones it is a swipeable row.
+     ========================================================================== -->
+<section class="products theme-dark section-anchor" id="products" aria-labelledby="products-title" data-hscroll>
+  <div class="products__pin" data-hscroll-pin>
+    <div class="container products__head">
+      <div>
+        <p class="label"><span class="label__num">02</span>Products</p>
+        <h2 class="sec-title" id="products-title" data-reveal data-split-lines>The parts that carry the power</h2>
+      </div>
+      <div class="products__aside" data-reveal>
+        <p class="products__lead">
+          CVT drive-line parts for automatic scooters and multi-plate clutch discs for sport
+          models — the wear parts every rider replaces.
+        </p>
+        <div class="hprogress" aria-hidden="true"><span data-hscroll-bar></span></div>
+      </div>
+    </div>
+
+    <div class="products__viewport" data-hscroll-viewport>
+      <div class="products__track" data-hscroll-track data-products></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     WHERE TO BUY (id stays #shop so old links keep working)
+     Cards are built by Render.renderDistributors() from DATA.distributors.
+     ========================================================================== -->
+<section class="section theme-light section-anchor shop" id="shop" aria-labelledby="shop-title">
+  <div class="container">
+    <header class="sec-head sec-head--row">
+      <div data-reveal>
+        <p class="label"><span class="label__num">03</span>Where to Buy</p>
+        <h2 class="sec-title" id="shop-title" data-split-lines>Find a genuine FCC distributor</h2>
+        <p class="sec-lead">Appointed distributors in Luzon, Visayas and Mindanao.</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter distributors by island group" data-distributors-filter data-reveal></div>
+    </header>
+
+    <div data-distributors></div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     PARTNERS — a full red band. The logo strip is built by render.js from
+     DATA.distributors; both CTAs pre-fill the contact form (data-inquiry).
+     ========================================================================== -->
+<section class="section theme-blue section-anchor partner" id="partner" aria-labelledby="partner-title">
+  <span class="partner__mega" aria-hidden="true" data-slide-x>Partner</span>
+  <div class="container partner__inner">
+    <div class="partner__intro" data-reveal>
+      <p class="label"><span class="label__num">04</span>Partner with FCC</p>
+      <h2 class="sec-title" id="partner-title" data-split-lines>Grow your business with genuine FCC parts</h2>
+      <p class="sec-lead">
+        We work with distributors, dealers and workshops across the Philippines — backed by
+        a Japanese-standard plant in Laguna and our own sales team.
+      </p>
+      <div class="cluster partner__actions">
+        <a class="btn btn--primary btn--lg" href="#contact" data-inquiry="distributor" data-magnetic>
+          <span class="btn__label">Become a distributor</span>
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#contact" data-inquiry="sales" data-magnetic>
+          <span class="btn__label">Request a quote</span>
+        </a>
+      </div>
+    </div>
+
+    <ol class="partner__values" data-reveal-group>
+      <li class="partner-card" data-reveal data-tilt>
+        <span class="partner-card__num">01</span>
+        <svg class="icon icon--lg partner-card__icon" aria-hidden="true" focusable="false"><use href="#i-factory"></use></svg>
+        <h3 class="partner-card__title">Japanese engineering</h3>
+        <p class="partner-card__text">Made to the engineering and quality standards of FCC Co., Ltd., Japan.</p>
+      </li>
+      <li class="partner-card" data-reveal data-tilt>
+        <span class="partner-card__num">02</span>
+        <svg class="icon icon--lg partner-card__icon" aria-hidden="true" focusable="false"><use href="#i-users"></use></svg>
+        <h3 class="partner-card__title">Sales support</h3>
+        <p class="partner-card__text">Quotations, distributor accounts and product questions, handled directly.</p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="logo-strip" data-reveal>
+    <p class="logo-strip__label">Our distributor network</p>
+    <!-- Filled by render.js from DATA.distributors (the ones with a logo) -->
+    <div class="logo-strip__viewport" data-partner-logos></div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     NEWS & EVENTS — the featured album is built by
+     Render.renderEventShowcase() from the first entry in DATA.events; the
+     archive grid appears only once there is more than one event.
+     ========================================================================== -->
+<section class="section theme-dark section-anchor events" id="events" aria-labelledby="events-title">
+  <div class="container">
+    <header class="sec-head" data-reveal>
+      <p class="label"><span class="label__num">05</span>News &amp; Events</p>
+      <h2 class="sec-title" id="events-title" data-split-lines>From the track and the plant</h2>
+    </header>
+
+    <div data-events-showcase></div>
+
+    <div class="events__archive" data-events-archive hidden>
+      <div class="filter-bar" role="group" aria-label="Filter events by category" data-events-filter></div>
+      <div class="grid grid--3 events__grid" data-events-grid data-reveal-group></div>
+      <div class="u-text-center events__more">
+        <button type="button" class="btn btn--ghost" data-events-more hidden>
+          <span class="btn__label">Load more</span>
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     CAREERS — one full-bleed banner that opens out as it arrives. Open
+     positions appear under it automatically once DATA.jobs has entries
+     (render.js hides [data-jobs-block] while empty).
+     ========================================================================== -->
+<section class="careers theme-dark section-anchor" id="careers" aria-labelledby="careers-title">
+  <div class="careers-banner" data-frame-open>
+    <img class="careers-banner__img" src="assets/img/events/fcc-riding-clinic-57.jpg" alt=""
+         width="1600" height="1064" loading="lazy" decoding="async" data-parallax="slow">
+    <div class="container careers-banner__body">
+      <p class="label"><span class="label__num">06</span>Careers</p>
+      <h2 class="sec-title" id="careers-title" data-reveal data-split-lines>Build a career in precision manufacturing</h2>
+      <!-- TODO: confirm this careers copy with HR -->
+      <p class="sec-lead" data-reveal>
+        Join the 512 people who make clutch components for the FCC group at Laguna
+        Technopark. Send us your CV — we keep it on file for every opening.
+      </p>
+      <a class="btn btn--accent btn--lg" href="#contact" data-inquiry="careers" data-reveal data-magnetic>
+        <span class="btn__label">Send your CV</span>
+        <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="container careers__jobs" data-jobs-block hidden>
+    <div class="filter-bar" role="group" aria-label="Filter positions by department" data-jobs-filter></div>
+    <div data-jobs></div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     CONTACT
+     ========================================================================== -->
+<section class="section theme-light section-anchor contact" id="contact" aria-labelledby="contact-title">
+  <div class="container contact-grid">
+
+    <div class="contact-intro">
+      <div data-reveal>
+        <p class="label"><span class="label__num">07</span>Contact</p>
+        <h2 class="sec-title" id="contact-title" data-split-lines>Let's talk</h2>
+        <p class="sec-lead">Quotations, distributorship, careers or anything else — tell us what you need.</p>
+      </div>
+
+      <div class="contact-info" data-reveal-group>
+        <div class="info-row" data-reveal>
+          <span class="info-row__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg></span>
+          <div>
+            <p class="info-row__label">Telephone</p>
+            <!-- TODO: add the company landline as the main number if there is one -->
+            <p class="info-row__value"><a href="tel:+639178666918">0917 866 6918</a></p>
+          </div>
+        </div>
+        <div class="info-row" data-reveal>
+          <span class="info-row__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></span>
+          <div>
+            <p class="info-row__label">Email</p>
+            <p class="info-row__value"><a href="mailto:salesmarketingph@worldfcc.com">salesmarketingph@worldfcc.com</a></p>
+          </div>
+        </div>
+        <div class="info-row" data-reveal>
+          <span class="info-row__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-map-pin"></use></svg></span>
+          <div>
+            <p class="info-row__label">Address</p>
+            <p class="info-row__value">
+              <a href="https://www.google.com/maps?q=FCC%20Philippines%20Corporation%2C%20106%20North%20Science%20Avenue%2C%20Laguna%20Technopark%2C%20Bi%C3%B1an%2C%20Laguna"
+                 target="_blank" rel="noopener">106 North Science Avenue, Laguna Technopark, Biñan</a>
+            </p>
+          </div>
+        </div>
+        <div class="info-row" data-reveal>
+          <span class="info-row__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg></span>
+          <div>
+            <p class="info-row__label">Business hours</p>
+            <!-- TODO: confirm the operating hours -->
+            <p class="info-row__value">Mon – Fri, 7:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The form opens the visitor's email app with the enquiry written out
+         (no mail server yet) — see the comment at the top of js/contact.js. -->
+    <div class="contact-form-card theme-dark" data-reveal="right">
+      <p class="contact-form-card__title">Send an enquiry</p>
+      <div class="form-alert" data-form-alert role="alert" hidden></div>
+
+      <form data-contact-form novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label" for="cf-name">Full name <span class="field__req" aria-hidden="true">*</span></label>
+            <input class="field__input" type="text" id="cf-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="cf-company">Company</label>
+            <input class="field__input" type="text" id="cf-company" name="company" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label class="field__label" for="cf-email">Email <span class="field__req" aria-hidden="true">*</span></label>
+            <input class="field__input" type="email" id="cf-email" name="email" autocomplete="email" inputmode="email" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="cf-phone">Phone</label>
+            <input class="field__input" type="tel" id="cf-phone" name="phone" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field field--full">
+            <label class="field__label" for="cf-inquiry">Type of enquiry <span class="field__req" aria-hidden="true">*</span></label>
+            <select class="field__select" id="cf-inquiry" name="inquiry" required>
+              <option value="">Select one…</option>
+              <option value="general">General enquiry</option>
+              <option value="sales">Sales &amp; quotation</option>
+              <option value="distributor">Distributorship &amp; partnership</option>
+              <option value="careers">Careers</option>
+              <option value="supplier">Supplier &amp; procurement</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field field--full">
+            <label class="field__label" for="cf-subject">Subject <span class="field__req" aria-hidden="true">*</span></label>
+            <input class="field__input" type="text" id="cf-subject" name="subject" required>
+          </div>
+          <div class="field field--full">
+            <label class="field__label" for="cf-message">Message <span class="field__req" aria-hidden="true">*</span></label>
+            <textarea class="field__textarea" id="cf-message" name="message" aria-describedby="cf-message-hint" required></textarea>
+            <p class="field__hint" id="cf-message-hint">Part numbers, quantities or role titles help us reply faster. Minimum 20 characters.</p>
+          </div>
+          <div class="field field--check field--full">
+            <input type="checkbox" id="cf-consent" name="consent" required>
+            <label class="field__label" for="cf-consent">
+              I agree to FCC (Philippines) Corp. contacting me about this enquiry. <span class="field__req" aria-hidden="true">*</span>
+            </label>
+          </div>
+
+          <!-- Honeypot: hidden from people, irresistible to bots -->
+          <input class="u-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field--full">
+            <button type="submit" class="btn btn--accent btn--lg btn--block" aria-describedby="cf-send-hint">
+              Send enquiry
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+            </button>
+            <p class="field__hint contact-form__hint" id="cf-send-hint">
+              Opens your email app with the enquiry ready to send. We use your details only to reply.
+            </p>
+          </div>
+        </div>
+      </form>
+      <div class="form-success" data-form-success role="status" aria-live="polite" hidden></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="site-footer theme-dark">
+  <span class="checker-strip" aria-hidden="true"></span>
+  <div class="container">
+    <div class="site-footer__cta" data-reveal>
+      <p class="site-footer__cta-text">Ready to run genuine FCC?</p>
+      <a class="btn btn--accent btn--lg" href="#contact" data-inquiry="sales" data-magnetic>
+        <span class="btn__label">Request a quote</span>
+        <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </a>
+    </div>
+
+    <div class="site-footer__grid">
+      <div>
+        <a class="logo-lockup" href="#home">
+          <img class="logo-lockup__mark site-footer__logo" src="assets/logo/fcc-logo-240.png" alt=""
+               width="240" height="240" loading="lazy" decoding="async">
+          <span class="logo-lockup__text">
+            <span class="logo-lockup__name">FCC</span>
+            <span class="logo-lockup__sub">(Philippines) Corp.</span>
+          </span>
+        </a>
+        <p class="site-footer__about">
+          Clutch parts for 2-wheel and 4-wheel applications, made at Laguna Technopark since
+          1993. A PEZA registered enterprise and member of the FCC group, Japan.
+        </p>
+        <div class="cluster cluster--sm site-footer__social">
+          <!-- Add LinkedIn / Facebook once the company pages exist
+               (#i-linkedin and #i-facebook are already in js/icons.js). -->
+          <a class="social-link" href="https://instagram.com/fccphilippinescorp" target="_blank" rel="noopener"
+             aria-label="FCC Philippines on Instagram">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-instagram"></use></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Footer">
+        <h3>Explore</h3>
+        <ul class="site-footer__links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#shop">Where to Buy</a></li>
+          <li><a href="#partner">Partners</a></li>
+          <li><a href="#events">News</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3>Contact</h3>
+        <address>
+          106 North Science Avenue<br>
+          Laguna Technopark, Biñan, Laguna<br>
+          <a href="tel:+639178666918">0917 866 6918</a><br>
+          <a href="mailto:salesmarketingph@worldfcc.com">salesmarketingph@worldfcc.com</a>
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <p class="site-footer__mega" aria-hidden="true" data-slide-x="reverse">FCC Philippines</p>
+
+  <div class="container">
+    <div class="site-footer__bottom">
+      <p>&copy; <span data-year>2026</span> FCC (Philippines) Corp. All rights reserved.</p>
+      <p>A member of the FCC group · PEZA Registered Enterprise</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Product detail modal — filled and opened by js/product-modal.js when a
+     product card is clicked. -->
+<dialog class="product-modal theme-dark" data-product-modal aria-labelledby="product-modal-title">
+  <div class="product-modal__box" data-product-modal-body></div>
+</dialog>
+
+<!-- Back to top. A plain link; js/to-top.js shows it and fills the ring. -->
+<a class="to-top" href="#home" data-to-top aria-label="Back to top">
+  <svg class="to-top__ring" viewBox="0 0 52 52" aria-hidden="true" focusable="false">
+    <circle class="to-top__track" cx="26" cy="26" r="24"/>
+    <circle class="to-top__bar" cx="26" cy="26" r="24" pathLength="1"/>
+  </svg>
+  <svg class="icon to-top__icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
+</a>
+
+
+<!-- Scripts. Order matters: data and icons first, then the engines, then
+     main.js which starts everything. Not loaded (kept for reference):
+     js/prail.js, js/rail.js, js/service-check.js, js/sec-index.js, js/cursor.js, js/powerflow.js. -->
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/split-lines.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/product-modal.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/to-top.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

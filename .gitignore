@@ -1,0 +1,11 @@
+# Local Claude Code settings
+.claude/
+
+# Project notes and design snapshots — kept on this PC only
+README.md
+CLAUDE.md
+design-baseline/
+design-history/
+
+# 30MB source video; the site plays assets/video/finish-line-podium.mp4
+Finish line and Podium Highlights.mp4

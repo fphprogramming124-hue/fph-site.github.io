@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="FCC mark">
+  <!--
+    FCC mark — geometry only, no text.
+    An abstracted clutch friction disc: outer ring, inner ring, eight radial
+    friction segments and a central hub. Strokes use currentColor so the mark
+    recolours itself on navy or on white.
+
+    PLACEHOLDER: replace with the official FCC Co., Ltd. corporate mark before
+    this site goes public.
+  -->
+  <g fill="none" stroke="currentColor" stroke-linecap="round">
+    <!-- outer ring -->
+    <circle cx="50" cy="50" r="46" stroke-width="4.5"/>
+    <!-- inner ring -->
+    <circle cx="50" cy="50" r="29" stroke-width="3.5"/>
+    <!-- eight radial friction segments -->
+    <g stroke-width="3">
+      <path d="M81 50h14"/>
+      <path d="M71.92 28.08l9.9-9.9"/>
+      <path d="M50 19V5"/>
+      <path d="M28.08 28.08l-9.9-9.9"/>
+      <path d="M19 50H5"/>
+      <path d="M28.08 71.92l-9.9 9.9"/>
+      <path d="M50 81v14"/>
+      <path d="M71.92 71.92l9.9 9.9"/>
+    </g>
+  </g>
+  <!-- central hub -->
+  <circle cx="50" cy="50" r="8.5" fill="currentColor"/>
+</svg>
